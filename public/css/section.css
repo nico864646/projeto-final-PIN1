@@ -1,0 +1,98 @@
+section{
+    grid-area: conteudo;
+    background-color: #48b19a9a;
+}
+
+.container{
+    display: grid;
+
+    margin: 5% 5%;
+
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+
+    gap: 50px 0;
+}
+
+[flag-holder]{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+[country-name]{
+    width: 200px;
+    height: 35px;
+}
+
+[img-flag]{
+    width: 200px;
+    height: 100px;
+
+    border-radius: 5px;
+}
+
+[div-resp]{
+    width: 200px;
+    height: 35px;
+    padding: 1px 0px;
+    text-align: center;
+    border: solid 2px;
+    color: rgb(18, 61, 99);
+}
+
+[q-bts]{
+    display: flex;
+    justify-content: center;
+}
+
+
+/* Somente página principal */
+.main-section{
+    display: grid;
+    flex-direction: column;
+    grid-template-columns: repeat(1, 1fr);
+    grid-template-rows: 100px;
+    padding-top: 5%;
+    background-image: url(/images/main-page-bg.jpg);
+}
+
+.main-section > h1{
+    display: flex;
+    justify-self: center;
+
+    margin: 5% 0%;
+    
+    font-size: 2.3em;
+    color: rgb(33, 34, 33);
+}
+
+.containerIndex{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: 100px;
+    flex-wrap: wrap;
+    margin: 5% 5%;
+
+    gap: 20px 10px;
+}
+
+.main-links{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background-color:#101010b6;
+
+    border-radius: 50px;
+
+    text-decoration: none;
+    font-family: 'Fredoka One', cursive;
+    font-size: 30px;
+    color: #fff9f9;
+}
+
+.main-links:hover{
+    color: #48b19b;
+    font-size: 35px
+}
