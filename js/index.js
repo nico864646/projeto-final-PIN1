@@ -9,20 +9,14 @@ const div = document.querySelector('[div-resp]')
 const flagNumbers = flags.length;
 const array = []; 
 
-//Obtém o continente escolhido a partir da URL.
-const continente = document.URL.split('-')[1]
-const link = document.URL.split('1')[1]
-console.log(continente);
-console.log(link);
-
 import { flagRespostas, flagLinks } from "./utilitarios.js";
 
-//Seleciona no menu o link que está ativada no momento
+//Obtém o continente escolhido a partir da URL.
+const continente = document.URL.split('-')[1];
+
+//Chamada de Funções
 selectedPage();
-
-//Carrega bandeiras aletórias na tela.
 loadFlags(array);
-
 
 function getRandom(min, max) {
     min = Math.ceil(min);
@@ -30,15 +24,16 @@ function getRandom(min, max) {
     return Math.floor(Math.random() * (max - min)) + min;
 }
 
+//Carrega bandeiras aletórias na tela.
 function loadFlags(array) {
     for (let i = 0; i < flagNumbers; i++) {
         
-        let aux_array = getRandom(0, 17)
+        let aux_array = getRandom(0, 17);
         
         if(array.includes(aux_array) == false){
             array.push(aux_array);
-            if(document.URL.split('pages'))
-            flags[i].src = flagLinks[continente][array[i]]
+            if(document.URL.split('pages'));
+            flags[i].src = flagLinks[continente][array[i]];
         }
         else{
             i--;
@@ -52,11 +47,11 @@ btSend.onclick = (e) => {
     
     for (let i = 0; i < flagNumbers; i++) {
         if(inputText[i].value.toLowerCase() == flagRespostas[continente][array[i]].toLowerCase()){
-            inputText[i].classList.add("bg-certo")
+            inputText[i].classList.add("bg-certo");
             contador++;
         }
         else{
-            inputText[i].classList.add("bg-errado")
+            inputText[i].classList.add("bg-errado");
         }
     }
     div.innerHTML = "Acertos = " + contador;
@@ -68,9 +63,10 @@ btReload.onclick = (e) => {
     document.location.reload(true);
 }
 
-//Ativa/Desativa campos e botões.
+//Altera campos e botões.
 btSend.disabled = true;
 btReload.disabled = true;
+btStart.classList.add('clicavel');
 inputText.forEach( input => {
     input.disabled = true;
 })
@@ -80,12 +76,17 @@ btStart.onclick = (e) => {
     btReload.disabled = false;
     e.target.disabled = true;
 
+    btSend.classList.add('clicavel');
+    btReload.classList.add('clicavel');
+    e.target.classList.remove('clicavel');
+
     inputText.forEach( input => {
         input.disabled = false;
     })
 }
 
+//Seleciona no menu o link que está ativada no momento
 function selectedPage() {
-    const a = document.querySelector(`.menu a[href='${link}']`)
-    a.classList.add('selected')
+    const a = document.querySelector(`.menu a[href='/quiz-${continente}']`);
+    a.classList.add('selected');
 }
