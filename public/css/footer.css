@@ -1,18 +1,11 @@
 footer{
     grid-area: rodape;
-
-    display: flex;
-    
+    display: flex;  
     width: 100%;
-
     background-color: #101010;
-
     padding: 10px;
-
     align-items: center;
-
     flex-wrap: wrap;
-
     justify-content: center;
 }
 

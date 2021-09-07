@@ -3,14 +3,35 @@ section{
     background-color: #48b19a9a;
 }
 
+section h2{
+    font-family: 'Fredoka One', cursive;
+    font-size: 1.50rem;
+    text-align: center;
+    margin-top: 40px;
+}
+
+section button{
+    border: none;
+    border-radius: 10px;
+    margin: 0 10px;
+    padding: 10px;
+    font-family: 'Fredoka One', cursive;
+    font-size: 1rem;
+}
+section button:hover{
+    background-color: #48b19b;
+    color: #2d404e;
+}
+
+.clicavel{
+    cursor: pointer;
+    background-color: #2d404e;
+}
+
 .container{
     display: grid;
-
-    margin: 5% 5%;
-
-    grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: repeat(2, 1fr);
-
+    margin: 4% 0;
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
     gap: 50px 0;
 }
 
@@ -23,29 +44,37 @@ section{
 [country-name]{
     width: 200px;
     height: 35px;
+    font-family: 'Fredoka One', cursive;
+    font-size: 1rem;
+    text-align: center;
+    color: #2d404e;
+    border-radius: 5px;
+    border: solid 0.1rem #2d404e;
 }
 
 [img-flag]{
     width: 200px;
     height: 100px;
-
     border-radius: 5px;
 }
 
 [div-resp]{
     width: 200px;
     height: 35px;
-    padding: 1px 0px;
     text-align: center;
     border: solid 2px;
-    color: rgb(18, 61, 99);
+    color: #2d404e;
+    font-family: 'Fredoka One', cursive;
+    padding: 5px;
+    border-radius: 10px;
 }
 
 [q-bts]{
     display: flex;
     justify-content: center;
+    align-items: center;
+    margin: 5% 5%;
 }
-
 
 /* Somente página principal */
 .main-section{
@@ -60,10 +89,8 @@ section{
 .main-section > h1{
     display: flex;
     justify-self: center;
-
     margin: 5% 0%;
-    
-    font-size: 2.3em;
+    font-size: 2.3rem;
     color: rgb(33, 34, 33);
 }
 
@@ -73,7 +100,6 @@ section{
     grid-template-rows: 100px;
     flex-wrap: wrap;
     margin: 5% 5%;
-
     gap: 20px 10px;
 }
 
@@ -81,18 +107,15 @@ section{
     display: flex;
     justify-content: center;
     align-items: center;
-
     background-color:#101010b6;
-
     border-radius: 50px;
-
     text-decoration: none;
     font-family: 'Fredoka One', cursive;
-    font-size: 30px;
+    font-size: 1,875rem;
     color: #fff9f9;
 }
 
 .main-links:hover{
     color: #48b19b;
-    font-size: 35px
+    font-size: 2,1875rem
 }
