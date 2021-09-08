@@ -1,48 +1,54 @@
-//Elementos HTML
+//Elementos HTML.
 const inputText = Array.from(document.querySelectorAll('[country-name]'));
 const flags = Array.from(document.querySelectorAll('[img-flag]'));
-const btSend = document.querySelector('[send-resp]')
-const btReload = document.querySelector('[reload-page]')
-const btStart = document.querySelector('[start-quiz]')
-const div = document.querySelector('[div-resp]')
+const btReload = document.querySelector('[reload-page]');
+const btStart = document.querySelector('[start-quiz]');
+const div = document.querySelector('[div-resp]');
+const timer = document.querySelector('[timer]');
 
 const flagNumbers = flags.length;
 const array = []; 
 
-import { flagRespostas, flagLinks } from "./utilitarios.js";
-
-//Obtém o continente escolhido a partir da URL.
 const continente = document.URL.split('-')[1];
 
-//Chamada de Funções
+import { flagRespostas, flagLinks } from "./utilitarios.js";
+
+
+//Chamada de funções.
 selectedPage();
 loadFlags(array);
+console.log(array);
 
-function getRandom(min, max) {
-    min = Math.ceil(min);
-    max = Math.floor(max);
-    return Math.floor(Math.random() * (max - min)) + min;
+//Altera campos e botões.
+btReload.disabled = true;
+btStart.classList.add('clicavel');
+switchInputTexts(true);
+
+//Recarrega página para novas bandeiras.
+btReload.onclick = (e) => {
+    document.location.reload(true);
 }
 
-//Carrega bandeiras aletórias na tela.
-function loadFlags(array) {
-    for (let i = 0; i < flagNumbers; i++) {
-        
-        let aux_array = getRandom(0, 17);
-        
-        if(array.includes(aux_array) == false){
-            array.push(aux_array);
-            if(document.URL.split('pages'));
-            flags[i].src = flagLinks[continente][array[i]];
-        }
-        else{
-            i--;
-        }
-    }
+//Inicia quiz.
+btStart.onclick = (e) => {
+    btReload.disabled = false;
+    e.target.disabled = true;
+
+    btReload.classList.add('clicavel');
+    e.target.classList.remove('clicavel');
+
+    switchInputTexts(false);
+    cronometro(60); //Aciona cronômetro.
+}
+
+//Seleciona no menu o link que está ativo no momento.
+function selectedPage() {
+    const a = document.querySelector(`.menu a[href='/quiz-${continente}']`);
+    a.classList.add('selected');
 }
 
 //Verifica respostas.
-btSend.onclick = (e) => {
+function checkAnswer(){
     let contador = 0;
     
     for (let i = 0; i < flagNumbers; i++) {
@@ -54,39 +60,50 @@ btSend.onclick = (e) => {
             inputText[i].classList.add("bg-errado");
         }
     }
-    div.innerHTML = "Acertos = " + contador;
-    e.target.disabled = true;
+    div.innerHTML = "Acertos = " + contador + "/6"
+    switchInputTexts(true);
 }
 
-//Recarrega página para novas bandeiras
-btReload.onclick = (e) => {
-    document.location.reload(true);
+//Carrega bandeiras aletórias na tela.
+function loadFlags(array) {
+    for (let i = 0; i < flagNumbers; i++) {
+        
+        let aux_array = getRandom(0, 17);
+        
+        if(array.includes(aux_array) == false){
+            array.push(aux_array);
+            flags[i].src = flagLinks[continente][array[i]];
+        }
+        else{
+            i--;
+        }
+    }
 }
 
-//Altera campos e botões.
-btSend.disabled = true;
-btReload.disabled = true;
-btStart.classList.add('clicavel');
-inputText.forEach( input => {
-    input.disabled = true;
-})
-
-btStart.onclick = (e) => {
-    btSend.disabled = false;
-    btReload.disabled = false;
-    e.target.disabled = true;
-
-    btSend.classList.add('clicavel');
-    btReload.classList.add('clicavel');
-    e.target.classList.remove('clicavel');
-
+function switchInputTexts(boolean) {
     inputText.forEach( input => {
-        input.disabled = false;
+        input.disabled = boolean;
     })
 }
 
-//Seleciona no menu o link que está ativada no momento
-function selectedPage() {
-    const a = document.querySelector(`.menu a[href='/quiz-${continente}']`);
-    a.classList.add('selected');
+function getRandom(min, max) {
+    min = Math.ceil(min);
+    max = Math.floor(max);
+    return Math.floor(Math.random() * (max - min)) + min;
+}
+
+function pad(s) {
+    return (s < 10) ? '0' + s : s;
+}
+
+function cronometro(segundos) {
+    let seg = segundos % 60;
+    let min = Math.floor(segundos / 60);
+    timer.innerHTML = "Tempo: " +  [min, seg].map(pad).join(':');
+    if (segundos > 0){
+        setTimeout(cronometro, 1000, segundos - 1);
+    }
+    else{
+        checkAnswer();
+    }
 }

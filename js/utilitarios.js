@@ -4,7 +4,7 @@ const flagRespostas = {
     america: [
         "Argentina",
         "Brasil",
-        "Canada",
+        "Canadá",
         "Colômbia",
         "Cuba",
         "Dominica",
