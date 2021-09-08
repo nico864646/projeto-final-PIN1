@@ -14,15 +14,15 @@ app.get('/inicio', function(req, res) {
 }) 
 
 app.get('/quiz-america', function(req, res) {
-    res.sendFile(__dirname + "/pages/quiz-america.html")
+    res.sendFile(__dirname + "/pages/quiz.html")
 }) 
 
 app.get('/quiz-asia', function(req, res) {
-    res.sendFile(__dirname + "/pages/quiz-asia.html")
+    res.sendFile(__dirname + "/pages/quiz.html")
 }) 
 
 app.get('/quiz-europa', function(req, res) {
-    res.sendFile(__dirname + "/pages/quiz-europa.html")
+    res.sendFile(__dirname + "/pages/quiz.html")
 }) 
 
 app.listen(8081, () => {console.log("Servidor Rodando")})
