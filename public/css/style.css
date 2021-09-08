@@ -30,3 +30,8 @@ body{
   background-color: #2d404e;
   pointer-events: none;
 }
+
+.clicavel{
+    cursor: pointer;
+    background-color: #2d404e;
+}
