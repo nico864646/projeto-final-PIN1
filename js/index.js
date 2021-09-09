@@ -38,7 +38,7 @@ btStart.onclick = (e) => {
     e.target.classList.remove('clicavel');
 
     switchInputTexts(false);
-    cronometro(60); //Aciona cronômetro.
+    cronometro(30);
 }
 
 //Seleciona no menu o link que está ativo no momento.
