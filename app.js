@@ -13,15 +13,15 @@ app.get('/inicio', function(req, res) {
     res.sendFile(__dirname + "/pages/index.html")
 }) 
 
-app.get('/quiz-america', function(req, res) {
+app.get('/quiz/america', function(req, res) {
     res.sendFile(__dirname + "/pages/quiz.html")
 }) 
 
-app.get('/quiz-asia', function(req, res) {
+app.get('/quiz/asia', function(req, res) {
     res.sendFile(__dirname + "/pages/quiz.html")
 }) 
 
-app.get('/quiz-europa', function(req, res) {
+app.get('/quiz/europa', function(req, res) {
     res.sendFile(__dirname + "/pages/quiz.html")
 }) 
 
