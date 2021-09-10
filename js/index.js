@@ -6,13 +6,9 @@ const btStart = document.querySelector('[start-quiz]');
 const div = document.querySelector('[div-resp]');
 const timer = document.querySelector('[timer]');
 
-const flagNumbers = flags.length;
 const array = []; 
-
+const flagNumbers = flags.length;
 const continente = document.URL.split('/')[4];
-
-console.log(document.URL);
-console.log(continente);
 
 import { flagRespostas, flagLinks } from "./utilitarios.js";
 
@@ -20,7 +16,6 @@ import { flagRespostas, flagLinks } from "./utilitarios.js";
 //Chamada de funções.
 selectedPage();
 loadFlags(array);
-console.log(array);
 
 //Altera campos e botões.
 btReload.disabled = true;
@@ -50,38 +45,43 @@ function selectedPage() {
     a.classList.add('selected');
 }
 
-//Verifica respostas.
-function checkAnswer(){
-    let contador = 0;
-    
-    for (let i = 0; i < flagNumbers; i++) {
-        if(inputText[i].value.toLowerCase() == flagRespostas[continente][array[i]].toLowerCase()){
-            inputText[i].classList.add("bg-certo");
-            contador++;
-        }
-        else{
-            inputText[i].classList.add("bg-errado");
-        }
-    }
-    div.innerHTML = "Acertos = " + contador + "/6"
-    switchInputTexts(true);
-}
-
 //Carrega bandeiras aletórias na tela.
 function loadFlags(array) {
-    for (let i = 0; i < flagNumbers; i++) {
-        
+
+    let i = 0;
+
+    while(i < flagNumbers) {
         let aux_array = getRandom(0, 17);
         
         if(array.includes(aux_array) == false){
             array.push(aux_array);
             flags[i].src = flagLinks[continente][array[i]];
+            i++;
         }
         else{
             i--;
         }
     }
 }
+
+//Verifica respostas.
+function checkAnswer(){
+    let acertos = 0;
+    let i = 0;
+    while( i < flagNumbers ) {
+        if(inputText[i].value.toLowerCase() == flagRespostas[continente][array[i]].toLowerCase()){
+            inputText[i].classList.add("bg-certo");
+            acertos++;
+        }
+        else {
+            inputText[i].classList.add("bg-errado");
+        }
+        i++
+    }
+    div.innerHTML = "Acertos = " + contador + "/6"
+    switchInputTexts(true);
+}
+
 
 function switchInputTexts(boolean) {
     inputText.forEach( input => {
@@ -95,9 +95,6 @@ function getRandom(min, max) {
     return Math.floor(Math.random() * (max - min)) + min;
 }
 
-function pad(s) {
-    return (s < 10) ? '0' + s : s;
-}
 
 function cronometro(segundos) {
     let seg = segundos % 60;
@@ -109,4 +106,8 @@ function cronometro(segundos) {
     else{
         checkAnswer();
     }
+}
+
+function pad(s) {
+    return (s < 10) ? '0' + s : s;
 }

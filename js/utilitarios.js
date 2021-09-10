@@ -18,7 +18,7 @@ const flagRespostas = {
         "República Dominicana",
         "Trindade e Tobago",
         "Uruguai",
-        "Venezuela",
+        "Venezuela"
     ],
 
     asia: [
@@ -48,13 +48,13 @@ const flagRespostas = {
         "Estônia",
         "Finlândia",
         "França",
-        "País de Gâles",
         "Grécia",
         "Irlanda",
         "Islândia",
         "Itália",
         "Luxemburgo",
         "Noruega",
+        "País de Gales",
         "Portugal",
         "República Tcheca",
         "Sérvia"
@@ -79,7 +79,7 @@ const flagLinks = {
         "/public/images/bandeiras/america/republica-dominicana.png",
         "/public/images/bandeiras/america/trindade-tobago.png",
         "/public/images/bandeiras/america/uruguai.png",
-        "/public/images/bandeiras/america/venezuela.png",
+        "/public/images/bandeiras/america/venezuela.png"
     ],
     asia: [
         "/public/images/bandeiras/asia/afeganistao.png",
@@ -108,13 +108,13 @@ const flagLinks = {
         "/public/images/bandeiras/europa/estonia.png",
         "/public/images/bandeiras/europa/finlandia.png",
         "/public/images/bandeiras/europa/franca.png",
-        "/public/images/bandeiras/europa/gales.png",
         "/public/images/bandeiras/europa/grecia.png",
         "/public/images/bandeiras/europa/irlanda.png",
         "/public/images/bandeiras/europa/islandia.png",
         "/public/images/bandeiras/europa/italia.png",
         "/public/images/bandeiras/europa/luxemburgo.png",
         "/public/images/bandeiras/europa/noruega.png",
+        "/public/images/bandeiras/europa/gales.png",
         "/public/images/bandeiras/europa/portugal.png",
         "/public/images/bandeiras/europa/rp-tcheca.png",
         "/public/images/bandeiras/europa/servia.png"
