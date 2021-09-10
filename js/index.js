@@ -51,16 +51,17 @@ function loadFlags(array) {
     let i = 0;
 
     while(i < flagNumbers) {
-        let aux_array = getRandom(0, 17);
+        let aux_array = getRandom(0, 16);
         
         if(array.includes(aux_array) == false){
             array.push(aux_array);
             flags[i].src = flagLinks[continente][array[i]];
-            i++;
         }
         else{
             i--;
         }
+        
+        i++;
     }
 }
 

@@ -40,6 +40,7 @@ const flagRespostas = {
         "Omã",
         "Tailândia"
     ],
+    
     europa: [
         "Alemanha",
         "Bélgica",
