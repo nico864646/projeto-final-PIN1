@@ -9,7 +9,10 @@ const timer = document.querySelector('[timer]');
 const flagNumbers = flags.length;
 const array = []; 
 
-const continente = document.URL.split('-')[1];
+const continente = document.URL.split('/')[4];
+
+console.log(document.URL);
+console.log(continente);
 
 import { flagRespostas, flagLinks } from "./utilitarios.js";
 
@@ -43,7 +46,7 @@ btStart.onclick = (e) => {
 
 //Seleciona no menu o link que está ativo no momento.
 function selectedPage() {
-    const a = document.querySelector(`.menu a[href='/quiz-${continente}']`);
+    const a = document.querySelector(`.menu a[href='/quiz/${continente}']`);
     a.classList.add('selected');
 }
 
