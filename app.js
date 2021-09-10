@@ -5,9 +5,6 @@ const app = express();
 app.use("/public", express.static('public'));
 app.use("/js", express.static('js'));
 
-app.get('/', function(req, res) {
-    res.sendFile(__dirname + "/pages/index.html")
-}) 
 
 app.get('/inicio', function(req, res) {
     res.sendFile(__dirname + "/pages/index.html")
