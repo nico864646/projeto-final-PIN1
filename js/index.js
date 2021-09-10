@@ -7,7 +7,7 @@ const div = document.querySelector('[div-resp]');
 const timer = document.querySelector('[timer]');
 
 const array = []; 
-const flagNumbers = flags.length;
+const qtdFlags = flags.length;
 const continente = document.URL.split('/')[4];
 
 import { flagRespostas, flagLinks } from "./utilitarios.js";
@@ -50,7 +50,7 @@ function loadFlags(array) {
 
     let i = 0;
 
-    while(i < flagNumbers) {
+    while(i < qtdFlags) {
         let aux_array = getRandom(0, 16);
         
         if(array.includes(aux_array) == false){
@@ -60,7 +60,7 @@ function loadFlags(array) {
         else{
             i--;
         }
-        
+
         i++;
     }
 }
@@ -69,17 +69,18 @@ function loadFlags(array) {
 function checkAnswer(){
     let acertos = 0;
     let i = 0;
-    while( i < flagNumbers ) {
+    while( i < qtdFlags ) {
         if(inputText[i].value.toLowerCase() == flagRespostas[continente][array[i]].toLowerCase()){
             inputText[i].classList.add("bg-certo");
             acertos++;
         }
         else {
             inputText[i].classList.add("bg-errado");
+            inputText[i].value = flagRespostas[continente][array[i]];
         }
         i++
     }
-    div.innerHTML = "Acertos = " + contador + "/6"
+    div.innerHTML = "Acertos = " + acertos + "/6"
     switchInputTexts(true);
 }
 
